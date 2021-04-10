@@ -1,7 +1,8 @@
-// @TODO: YOUR CODE HERE!
+//Set Heigh and Width
 var svgWidth = 990;
 var svgHeight = 500;
 
+//Set Margins
 var margin = {
   top: 20,
   right: 40,
@@ -12,7 +13,7 @@ var margin = {
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
-// Create an SVG wrapper, append an SVG group that will hold our chart, and shift the latter by left and top margins.
+// Create an SVG wrapper
 var svg = d3.select("#scatter")
   .append("svg")
   .attr("width", svgWidth)
@@ -78,8 +79,6 @@ d3.csv("assets/data/data.csv").then(function(data) {
 
     // Step 7: Create tooltip in the chart
     // ==============================
-    // chartGroup.call(toolTip);
-
     textGroup = chartGroup.append("g")
     textGroup.selectAll("text")
     .data(data)
@@ -88,7 +87,7 @@ d3.csv("assets/data/data.csv").then(function(data) {
     .text(function(d){
       return d.abbr;
     })
-
+    //add abbreviations to circles
     .attr("dx", function(d){
       return xLinearScale(d.poverty)-10;
     })
